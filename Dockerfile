@@ -13,7 +13,7 @@ COPY main.go .
 
 RUN CGO_ENABLED=0 go build -o ./myapp
 
-FROM scratch
+FROM gcr.io/distroless/static-debian11
 
 COPY --from=builder /app/myapp /myapp
 COPY templates /templates
